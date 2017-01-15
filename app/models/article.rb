@@ -1,3 +1,3 @@
 class Article < ApplicationRecord
-  enum status: %i(draft limit public)
+  enum status: %i(draft limiting publish)
 end
