@@ -16,6 +16,12 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @html = markdown.render(@article.text)
+  end
+
   def destroy
     @article.destroy
     redirect_to root_path
@@ -27,7 +33,7 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :text)
     end
 
-    def set_memo
+    def set_article
       @article = Article.find(params[:id])
     end
 end
