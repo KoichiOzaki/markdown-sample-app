@@ -1,0 +1,9 @@
+<h1 class="headingtype-1 headingtype-green">markdown sample</h1>
+<%= link_to '新規作成', new_article_path %>
+
+<% @articles.each do |article| %>
+  <div class="memos">
+    <%= link_to article.title, article_path(article) %>
+    <%= link_to '削除', article_path(article), class: 'delete-btn', method: :delete %>
+  </div>
+<% end %>

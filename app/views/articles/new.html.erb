@@ -1,0 +1,18 @@
+<h1 class="headingtype-1 headingtype-green">Markdown Editor</h1>
+<%= form_for @article, html: { class: 'editor-box row' } do |f| %>
+  <div class="col-xs-6 editor">
+    <%= f.text_field :title, id: 'title', autofocus: true, placeholder: 'タイトルを入力してください' %>
+    <%= f.text_area :text, id: 'editor', class: 'form-control', placeholder: 'Markdown記法で入力してね' %>
+  </div>
+  <div class="col-xs-6">
+    <div class="result">
+      <h1 id="title-result" class="preview"></h1>
+      <div id="result" class="preview">
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 actions">
+    <%= button_to 'CANCEL', root_path, class: 'btn btn-default' %>
+    <%= f.submit "SUBMIT", class: 'btn btn-submit' %>
+  </div>
+<% end %>
